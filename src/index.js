@@ -48,6 +48,8 @@ function createJwtToken(user) {
     var payload = {
         userId: getUserId(user)
     };
+
+    // TODO: Set expiresInMinutes & handle refreshing tokens
     return jwt.sign(payload, signingSecret);
 }
 

@@ -17,8 +17,5 @@
     "sequelize": "~2.0.0-rc1",
     "jsonwebtoken": "~1.1.2",
     "express-local-auth": "~0.0.5"
-  },
-  "devDependencies": {
-    "sqlite3": "~2.1.19"
   }
 }

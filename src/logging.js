@@ -10,7 +10,7 @@ SimpleLogger.prototype.write = function (rec) {
         '50': 'ERROR',
         '60': 'FATAL'
     };
-    console.log('[%s] %s: %s %s', rec.time, nameFromLevel[rec.level], rec.msg, rec.err || '');
+    console.log('[%s] %s: %s %s', rec.time, nameFromLevel[rec.level], rec.msg, rec.err ? JSON.stringify(rec.err) : '');
 };
 
 module.exports = {
