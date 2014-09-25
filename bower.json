@@ -1,0 +1,16 @@
+{
+  "name": "node-auth",
+  "version": "0.0.1",
+  "authors": [
+    "Andrew Smith <emertechie@gmail.com>"
+  ],
+  "main": "src/index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
