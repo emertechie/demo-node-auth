@@ -1,0 +1,4 @@
+{
+    "databaseUrl": "DATABASE_URL",
+    "recreateDb": "RECREATE"
+}
