@@ -14,7 +14,7 @@ var express = require('express'),
 var app = express(),
     port = process.env.PORT || 3000,
     logger = logging.createLogger('app'),
-    signingSecret = config.get('jwtSigningSecret');
+    signingSecret = config.get('signingSecret');
 
 // Allowing access from all domains here. May want to restrict that with cors options
 app.use(cors());

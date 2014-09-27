@@ -1,5 +1,5 @@
 {
     "databaseUrl": "< your connection string here or else use env var >",
-    "jwtSigningSecret": "< your signing secret here or else use env var >",
+    "signingSecret": "< your signing secret here or else use env var >",
     "recreateDb": false
 }

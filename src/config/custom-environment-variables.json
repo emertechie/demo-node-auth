@@ -1,4 +1,5 @@
 {
     "databaseUrl": "DATABASE_URL",
+    "signingSecret": "SIGNING_SECRET",
     "recreateDb": "RECREATE"
 }
