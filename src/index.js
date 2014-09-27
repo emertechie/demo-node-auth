@@ -36,12 +36,12 @@ var services = {
 };
 
 var minuteInMs = 1000 * 60;
-var twentyMins = 20 * minuteInMs;
-var twentySeconds = 20 * 1000; // TODO: Just for testing, obviously
+// var accountLockedMs = 20 * minuteInMs;
+var accountLockedMs = 30 * 1000; // TODO: Just for testing, obviously
 
 var localAuth = localAuthFactory(app, services, {
     failedLoginsBeforeLockout: 3, // << TODO Low number just for testing
-    accountLockedMs: twentySeconds,
+    accountLockedMs: accountLockedMs,
     verifyEmail: true,
     useSessions: false,
     autoSendErrors: true
@@ -57,6 +57,10 @@ function createJwtToken(user) {
     // TODO: Set expiresInMinutes & handle refreshing tokens
     return jwt.sign(payload, signingSecret);
 }
+
+app.get('/', function(req, res) {
+    res.send('Demo node auth app. Nothing to see here');
+});
 
 app.post('/login', localAuth.login(), function(req, res) {
     logger.info('Logged in user %s successfully. Sending JWT token', req.user.email);
