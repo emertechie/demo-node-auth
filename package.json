@@ -16,6 +16,7 @@
     "pg": "~2.0.0",
     "sequelize": "~2.0.0-rc1",
     "jsonwebtoken": "~1.1.2",
-    "express-local-auth": "~0.0.5"
+    "express-local-auth": "~0.0.5",
+    "cors": "~2.4.2"
   }
 }

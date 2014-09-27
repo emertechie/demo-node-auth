@@ -3,6 +3,7 @@ var express = require('express'),
     config = require('config'),
     logging = require('./logging'),
     jwt = require('jsonwebtoken'),
+    cors = require('cors'),
     // Services:
     userStore = require('./services/userStore'),
     tokenStore = require('./services/tokenStore'),
@@ -15,7 +16,11 @@ var app = express(),
     logger = logging.createLogger('app'),
     signingSecret = config.get('jwtSigningSecret');
 
-app.use(bodyParser.urlencoded());
+// Allowing access from all domains here. May want to restrict that with cors options
+app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 function getUserId(user) {
     return user.id;
@@ -56,6 +61,13 @@ function createJwtToken(user) {
 app.post('/login', localAuth.login(), function(req, res) {
     logger.info('Logged in user %s successfully. Sending JWT token', req.user.email);
     res.status(200).send(createJwtToken(req.user));
+});
+
+// Note: logout handler is redundant now but would be used for
+// token invalidation / marking user logged out in DB etc
+app.get('/logout', localAuth.logout(), function(req, res) {
+    logger.info('Logged out user successfully');
+    res.status(200).send('Logged out successfully');
 });
 
 app.post('/register', localAuth.register(), function(req, res) {
